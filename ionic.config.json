@@ -1,0 +1,7 @@
+{
+  "name": "mobil-brasil-burger",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
