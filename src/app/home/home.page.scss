@@ -1,19 +1,12 @@
-#container {
+#container{
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
   top: 50%;
-  transform: translateY(-50%);
 }
-
 #container strong {
   font-size: 20px;
   line-height: 26px;
 }
-
-#container p {
+#container p{
   font-size: 16px;
   line-height: 22px;
 
@@ -24,4 +17,12 @@
 
 #container a {
   text-decoration: none;
+}
+.img-wrapper{
+  width: 100%;
+  height: 30vh;
+  img{
+    width: 100%;
+    height: 100%;
+  }
 }
