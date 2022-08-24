@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { IonicHeaderParallaxModule } from 'ionic-header-parallax';
+import {LoginPageModule} from '../security/login/login.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { IonicHeaderParallaxModule } from 'ionic-header-parallax';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    IonicHeaderParallaxModule
+    IonicHeaderParallaxModule,
+    LoginPageModule
   ],
     declarations: [HomePage]
 })

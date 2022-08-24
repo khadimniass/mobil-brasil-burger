@@ -1,7 +1,8 @@
-import { Component,OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BackService} from '../services/back.service';
 import {Produit} from '../models/models.types';
 import {ServicesService} from '../services/services.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,12 @@ export class HomePage implements OnInit{
   menus: Produit[]=[];
   burgers: Produit[]=[];
   viewer=true;
-  linkParallax = 'https://www.themealdb.com/images/media/meals/k420tj1585565244.jpg';
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  @Input() burger!: Produit;
   constructor(private backService: BackService,
-              private service: ServicesService) {}
+              private service: ServicesService,
+              private router: Router,
+              ) {}
   ngOnInit() {
     this.backService.getCatalogueObs().subscribe(catalogue=>{
       setTimeout(()=>{
@@ -28,9 +32,18 @@ export class HomePage implements OnInit{
     return this.service.demanderAffichageImage(img);
   }
   details(id: number){
-    alert('detail element');
+    this.router.navigate([`catalogue/burger/${id}`]);
   }
   ajouteraupanier(produit: Produit){
     alert('ajouter au panier');
   }
+
+  segmentChanged(e: any) {
+    console.log(e.detail.value);
+  }
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
 }

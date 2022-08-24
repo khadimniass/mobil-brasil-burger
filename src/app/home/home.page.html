@@ -1,28 +1,40 @@
+<!--
 <ion-header
   parallax
-  imageUrl="https://picsum.photos/350"
+  imageUrl="../../assets/welcomeRest.jpg"
   height="350"
   bgPosition="top"
 >
   <ion-toolbar color="dark">
     <ion-title> brasil burger </ion-title>
   </ion-toolbar>
-  <ion-segment color="dark">
-    <ion-segment-button value="camera">
-      <ion-icon name="grid"></ion-icon>
-    </ion-segment-button>
-    <ion-segment-button value="bookmark">
-      <ion-icon name="list"></ion-icon>
-    </ion-segment-button>
-  </ion-segment>
 </ion-header>
+-->
 <ion-content [fullscreen]="true" >
-  <div id="container" style=";">
-    <!---->
+  <ion-slides pager="true">
+    <ion-slide>
+      <img src="https://www.themealdb.com/images/media/meals/1529445434.jpg">
+    </ion-slide>
+
+    <ion-slide>
+    <app-login></app-login>
+    </ion-slide>
+  </ion-slides>
+  <!--
+  <div id="container" style="margin-top: 4vh;">
+    <ion-segment color="dark" value="" (ionChange)="segmentChanged($event)" >
+      <ion-segment-button value="grid">
+        <ion-icon name="grid"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="list">
+        <ion-icon name="list"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
 <ion-spinner name="circles" *ngIf="viewer"></ion-spinner>
   <div #content>
   <h1>BURGER</h1>
-  <ion-card color="light" *ngFor="let burger of burgers">
+    <ion-card>
+        <ion-card color="light" *ngFor="let burger of burgers">
     <div class="img-wrapper">
       <img [src]="viewImg(burger?.image)" alt="{{burger?.nom}} "/>
     </div>
@@ -39,8 +51,10 @@
       <ion-button color="success" (click)="ajouteraupanier(burger)">panier</ion-button>
     </ion-card-content>
   </ion-card>
+    </ion-card>
   <h1>MENU</h1>
-  <ion-card color="light" *ngFor="let menu of menus">
+    <ion-card>
+        <ion-card color="light" *ngFor="let menu of menus">
     <div class="img-wrapper">
       <img [src]="viewImg(menu?.image)" alt="{{menu?.nom}} "/>
     </div>
@@ -57,6 +71,8 @@
       <ion-button color="success" (click)="ajouteraupanier(menu)">panier</ion-button>
     </ion-card-content>
   </ion-card>
+    </ion-card>
   </div>
   </div>
+  -->
 </ion-content>
