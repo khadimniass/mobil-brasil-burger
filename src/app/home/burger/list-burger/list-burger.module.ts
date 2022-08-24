@@ -4,20 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MenuPageRoutingModule } from './menu-routing.module';
+import { ListBurgerPageRoutingModule } from './list-burger-routing.module';
 
-import { MenuPage } from './menu.page';
+import { ListBurgerPage } from './list-burger.page';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
-        MenuPageRoutingModule
+        ListBurgerPageRoutingModule
     ],
     exports: [
-        MenuPage
+        ListBurgerPage
     ],
-    declarations: [MenuPage]
+    declarations: [ListBurgerPage]
 })
-export class MenuPageModule {}
+export class ListBurgerPageModule {}

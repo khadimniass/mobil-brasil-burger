@@ -4,15 +4,16 @@ import {ServicesService} from '../../../services/services.service';
 import {BackService} from '../../../services/back.service';
 
 @Component({
-  selector: 'app-burger',
-  templateUrl: './burger.page.html',
-  styleUrls: ['./burger.page.scss'],
+  selector: 'app-list-burger',
+  templateUrl: './list-burger.page.html',
+  styleUrls: ['./list-burger.page.scss'],
 })
-export class BurgerPage implements OnInit {
-  burgers: Produit[]=[];
+export class ListBurgerPage implements OnInit {
+  burgers: Produit[]=[] ;
+
   constructor(private service: ServicesService,
-                private backService: BackService,
-              ) { }
+              private backService: BackService
+  ) { }
 
   ngOnInit() {
     this.backService.getCatalogueObs().subscribe(catalogue=>{
@@ -21,7 +22,5 @@ export class BurgerPage implements OnInit {
   }
   viewImg(img: string){
     return this.service.demanderAffichageImage(img);
-  }
-  ajouteraupanier(burger: any) {
   }
 }

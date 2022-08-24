@@ -9,12 +9,15 @@ import { BurgerPageRoutingModule } from './burger-routing.module';
 import { BurgerPage } from './burger.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    BurgerPageRoutingModule
-  ],
-  declarations: [BurgerPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        BurgerPageRoutingModule
+    ],
+    exports: [
+        BurgerPage
+    ],
+    declarations: [BurgerPage]
 })
 export class BurgerPageModule {}

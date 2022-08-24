@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { IonicHeaderParallaxModule } from 'ionic-header-parallax';
 import {LoginPageModule} from '../security/login/login.module';
 
 
@@ -15,7 +14,6 @@ import {LoginPageModule} from '../security/login/login.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    IonicHeaderParallaxModule,
     LoginPageModule
   ],
     declarations: [HomePage]

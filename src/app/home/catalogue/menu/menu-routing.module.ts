@@ -9,7 +9,7 @@ const routes: Routes = [
     component: MenuPage
   },
   {
-    path: 'detail-menu',
+    path: 'detail-menu/:id',
     loadChildren: () => import('./detail-menu/detail-menu.module').then( m => m.DetailMenuPageModule)
   }
 ];

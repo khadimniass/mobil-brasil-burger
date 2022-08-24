@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {BackService} from '../../../services/back.service';
 import {Produit} from '../../../models/models.types';
+import {BackService} from '../../../services/back.service';
 import {ServicesService} from '../../../services/services.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.page.html',
-  styleUrls: ['./menu.page.scss'],
+  selector: 'app-list-menu',
+  templateUrl: './list-menu.page.html',
+  styleUrls: ['./list-menu.page.scss'],
 })
-export class MenuPage implements OnInit {
+export class ListMenuPage implements OnInit {
   menus: Produit[]=[];
   constructor(private backService: BackService,
-              private service: ServicesService,) { }
+              private service: ServicesService) { }
 
   ngOnInit() {
     this.backService.getCatalogueObs().subscribe(catalogue=>{
+      setTimeout(()=>{
+        //   this.burgers = catalogue.burgers;
         this.menus = catalogue.menus;
+      }, 2000);
     });
   }
   viewImg(img: string){

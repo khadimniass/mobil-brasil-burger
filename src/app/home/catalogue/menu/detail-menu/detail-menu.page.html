@@ -1,9 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>detail-menu</ion-title>
+    <ion-title>detail de {{menu?.nom}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/catalogue"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content style="text-align: center">
+  <img [src]="viewImg(menu?.image)" class="imgMenuBurger" alt="{{menu?.nom}}" srcset="">
+  <h3>{{menu?.nom}}</h3>
+  <p>{{menu?.description}}</p>
+  <ion-button>
+    ajouter au panier
+  </ion-button>
 </ion-content>

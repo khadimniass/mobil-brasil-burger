@@ -1,0 +1,13 @@
+<ion-card class=" " *ngFor="let burger of burgers">
+  <ion-item button detail class="datetime-grid burger" href="home/catalogue/burger/detail-burger/{{burger.id}}">
+    <ion-col>
+      <ion-thumbnail>
+        <img [src]="viewImg(burger?.image)" class="imgMenuBurger" alt="" srcset="">
+      </ion-thumbnail>
+    </ion-col>
+    <div>
+      <p class="ion-text-center textCol">Nom:{{burger?.nom}}</p>
+      <p class="ion-text-center textCol">Prix:{{burger?.prix}}</p>
+    </div>
+  </ion-item>
+</ion-card>

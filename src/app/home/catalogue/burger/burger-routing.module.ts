@@ -9,7 +9,7 @@ const routes: Routes = [
     component: BurgerPage
   },
   {
-    path: 'detail-burger',
+    path: 'detail-burger/:id',
     loadChildren: () => import('./detail-burger/detail-burger.module').then( m => m.DetailBurgerPageModule)
   }
 ];
