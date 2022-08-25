@@ -7,7 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
-import {HttpClientModule} from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage-angular';
+
 
 @NgModule({
   imports: [
@@ -16,11 +17,12 @@ import {HttpClientModule} from '@angular/common/http';
     IonicModule,
     LoginPageRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    IonicStorageModule.forRoot()
   ],
   exports: [
     LoginPage
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage],
+  providers: []
 })
 export class LoginPageModule {}

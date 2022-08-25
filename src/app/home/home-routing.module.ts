@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
+import {GuardAuthGuard} from '../security/guard/guard-auth.guard';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'catalogue',
+    canActivate: [GuardAuthGuard],
     loadChildren: () => import('./catalogue/catalogue.module').then( m => m.CataloguePageModule)
   },
   {
@@ -18,6 +20,10 @@ const routes: Routes = [
   {
     path: 'list-menu',
     loadChildren: () => import('./menu/list-menu/list-menu.module').then( m => m.ListMenuPageModule)
+  },
+  {
+    path: 'livraison',
+    loadChildren: () => import('./livraisons/livraison/livraison.module').then( m => m.LivraisonPageModule)
   }
 ];
 

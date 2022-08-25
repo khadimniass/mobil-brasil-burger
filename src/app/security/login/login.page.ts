@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthentificationService} from '../service/authentification.service';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginPage implements OnInit {
     login:new FormControl('',[Validators.required]),
     password:new FormControl('',[Validators.required]),
   });
-  constructor(private authenticationService: AuthentificationService) { }
+  constructor(private authenticationService: AuthentificationService,
+              private storage: Storage) { }
   ngOnInit() {
   }
   login() {

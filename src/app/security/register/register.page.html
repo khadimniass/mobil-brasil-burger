@@ -6,5 +6,37 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content >
+  <form  #form="ngForm" (ngSubmit)="register(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Create your account!</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input  name="prenom" type="text" placeholder="prenom" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  name="nom" type="text" placeholder="nom" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="login" type="email" placeholder="niass@email.com" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="confirm" type="password" placeholder="confirm Password" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Register</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <a href="home">connexion</a>
 </ion-content>
