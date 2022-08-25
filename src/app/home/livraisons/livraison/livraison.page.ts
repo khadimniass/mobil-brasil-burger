@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthentificationService} from '../../../security/service/authentification.service';
 
 @Component({
   selector: 'app-livraison',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./livraison.page.scss'],
 })
 export class LivraisonPage implements OnInit {
+livreurConnected: any;
 
-  constructor() { }
+  constructor(private serviceAuth: AuthentificationService) { }
 
   ngOnInit() {
+    const token = JSON.stringify(localStorage.getItem('token-ionic'));
+    const information = this.serviceAuth.getDecodedAccessToken(token);
+    //console.log('email du user connected',information.username);
+    this.serviceAuth.getUsers().subscribe(users=>{
+     this.livreurConnected= users.find((user=>user.login===information.username));
+      //console.log(this.livreurConnected);
+    });
   }
-
 }
+

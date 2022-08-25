@@ -3,12 +3,16 @@ import {HttpClient} from '@angular/common/http';
 import jwt_decode from 'jwt-decode';
 import {Router} from '@angular/router';
 import { Storage } from '@ionic/storage';
+import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthentificationService {
   url = 'http://127.0.0.1:8000/api/login';
+  urlAllUser = 'http://127.0.0.1:8000/api/users';
   token='';
+  public userCon: any;
+  allUser: any[]=[];
   constructor(private http: HttpClient,
               private router: Router) { }
   login(user: any){
@@ -40,5 +44,8 @@ export class AuthentificationService {
   }
   deconnexion(){
     localStorage.removeItem('token-ionic');
+  }
+  getUsers(): Observable<any>{
+    return this.http.get<any>(this.urlAllUser);
   }
 }
