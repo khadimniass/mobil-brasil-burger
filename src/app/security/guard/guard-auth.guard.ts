@@ -23,8 +23,6 @@ export class GuardAuthGuard implements CanActivate {
       if (navigation){
         url= navigation.extractedUrl.toString();
       }
-      console.log('url : ',url);
-      alert('pas authoriser');
       this.router.navigateByUrl('register');
       return false;
     }

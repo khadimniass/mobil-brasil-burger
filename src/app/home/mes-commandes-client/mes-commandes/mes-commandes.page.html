@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>mes-commandes</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/catalogue"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list *ngFor="let commande of commandesClient">
+    <ion-card>
+      <ion-item-sliding>
+        <ion-item button detail href="home/mes-commandes/detail-commande/{{commande?.id}}">
+          <ion-avatar slot="start">
+            <img src="https://www.pngarts.com/files/3/Pokemon-Pikachu-Transparent-Background-PNG.png">
+          </ion-avatar>
+          <ion-label>
+             <h1>{{commande?.addedAt |date:"dd/MM/y"}}</h1>
+             <small>{{commande?.etat}}</small>
+          </ion-label>
+          <ion-icon name="location"></ion-icon>
+        </ion-item>
+        <ion-item-options>
+          <ion-item-option>code</ion-item-option>
+          <ion-item-option color="success">QR</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+  </ion-list>
+</ion-content>

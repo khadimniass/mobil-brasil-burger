@@ -24,6 +24,14 @@ const routes: Routes = [
   {
     path: 'livraison',
     loadChildren: () => import('./livraisons/livraison/livraison.module').then( m => m.LivraisonPageModule)
+  },
+  {
+    path: 'livraison/detail-livraison/:id',
+    loadChildren: () => import('./livraisons/detail-livraison/detail-livraison.module').then( m => m.DetailLivraisonPageModule)
+  },
+  {
+    path: 'mes-commandes',
+    loadChildren: () => import('./mes-commandes-client/mes-commandes/mes-commandes.module').then( m => m.MesCommandesPageModule)
   }
 ];
 

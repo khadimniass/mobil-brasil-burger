@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detail-livraison</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/livraison"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <h2>les commandes</h2>
+  <ion-icon name="location"></ion-icon>
+  {{ zone }}
+  <ion-list>
+    <ion-card *ngFor="let commande of commandes">
+      <ion-item-sliding >
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="https://www.pngarts.com/files/3/Pokemon-Pikachu-Transparent-Background-PNG.png">
+          </ion-avatar>
+          <ion-label>
+            <h2>commandes</h2>
+            <small>description</small>
+          </ion-label>
+        </ion-item>
+        <ion-item-options>
+          <ion-item-option color="info">code</ion-item-option>
+          <ion-item-option color="success">QR</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+  </ion-list>
+</ion-content>

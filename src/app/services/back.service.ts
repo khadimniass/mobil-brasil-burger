@@ -8,7 +8,9 @@ import {Observable} from 'rxjs';
 export class BackService {
   private readonly urlCatlogue: string ='http://127.0.0.1:8000/api/catalogues';
   private readonly urlProduit: string = 'http://127.0.0.1:8000/api/produits';
-
+  private readonly urlLivraison: string = 'http://127.0.0.1:8000/api/livraisons';
+  private readonly urlClient: string = 'http://127.0.0.1:8000/api/users';
+  private readonly urlcommandes: string = 'http://127.0.0.1:8000/api/commandes';
   constructor(
     private http: HttpClient
   ) {}
@@ -17,5 +19,14 @@ export class BackService {
   }
   getProduitById(idProduit: number): Observable<any>{
     return this.http.get<any>(this.urlProduit+'/'+idProduit);
+  }
+  getLivraisonById(id: number): Observable<any>{
+    return this.http.get<any>(this.urlLivraison+'/'+id);
+  }
+  getClientByEmail(email: string): Observable<any>{
+    return this.http.get<any>(this.urlClient+'?login='+email);
+  }
+  getCommandeById(id: number){
+    return this.http.get<any>(this.urlcommandes+'/'+id);
   }
 }

@@ -9,17 +9,18 @@ import {Observable} from 'rxjs';
 })
 export class AuthentificationService {
   url = 'http://127.0.0.1:8000/api/login';
-  urlAllUser = 'http://127.0.0.1:8000/api/users';
+  urlAllLivreur = 'http://127.0.0.1:8000/api/livreurs';
   token='';
+  informationUserConnectd: any;
   public userCon: any;
   allUser: any[]=[];
   constructor(private http: HttpClient,
               private router: Router) { }
   login(user: any){
     return this.http.post<any>(this.url,user).subscribe(token=>{
-     // console.log(JSON.stringify(token));
       this.token = JSON.stringify(token);
      const role = this.getDecodedAccessToken(JSON.stringify(token)).roles[0];
+     this.informationUserConnectd = this.getDecodedAccessToken(JSON.stringify(token));
       if (role==='ROLE_CLIENT') {
         this.router.navigateByUrl('home/catalogue');
       } else if (role==='ROLE_LIVREUR') {
@@ -45,7 +46,7 @@ export class AuthentificationService {
   deconnexion(){
     localStorage.removeItem('token-ionic');
   }
-  getUsers(): Observable<any>{
-    return this.http.get<any>(this.urlAllUser);
+  getLivreurs(): Observable<any>{
+    return this.http.get<any>(this.urlAllLivreur);
   }
 }

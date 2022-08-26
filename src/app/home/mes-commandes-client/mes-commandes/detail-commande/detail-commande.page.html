@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detail-commande</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/mes-commandes"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align: center;">
+  <div style="margin-top: 5vh;">
+  <qrcode qrdata="{{commande?.code}}"
+          level="'M'"
+          size="256">
+  </qrcode>
+  </div>
+  <h1>{{commande?.code}}</h1>
+</ion-content>

@@ -20,7 +20,6 @@ export class DetailBurgerPage implements OnInit {
 
   ngOnInit() {
     const idProduit = + this.activeRoute.snapshot.params.id;
-    //this.produit=this.serviceCat.getBurgeryId(idProduit); // donne du tableau
     this.servicebd.getProduitById(idProduit).subscribe(data=>{
       this.burger=data;
     });

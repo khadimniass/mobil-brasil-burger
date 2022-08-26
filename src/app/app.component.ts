@@ -12,7 +12,7 @@ export class AppComponent {
     { title: 'Nos menu', url: '#', icon: 'menu' },
     { title: 'Nos burgers', url: '#', icon: 'fast-food' },
     { title: 'Nos complements', url: '#', icon: 'beer' },
-    { title: 'mes commandes', url: '#', icon: 'heart' },
+    { title: 'mes commandes', url: 'home/mes-commandes', icon: 'heart' },
     { title: 'deconnexion', url: '/home', icon: 'power' },
   ];
 }
