@@ -32,6 +32,11 @@ const routes: Routes = [
   {
     path: 'mes-commandes',
     loadChildren: () => import('./mes-commandes-client/mes-commandes/mes-commandes.module').then( m => m.MesCommandesPageModule)
+  },
+  {
+    path: 'scanner-qrcode',
+//    redirectTo: '',
+    loadChildren: () => import('./livraisons/scanner-qrcode/scanner-qrcode.module').then( m => m.ScannerQrcodePageModule)
   }
 ];
 

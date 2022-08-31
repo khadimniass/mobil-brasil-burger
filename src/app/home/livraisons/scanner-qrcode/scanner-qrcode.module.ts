@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DetailLivraisonPageRoutingModule } from './detail-livraison-routing.module';
+import { ScannerQrcodePageRoutingModule } from './scanner-qrcode-routing.module';
 
-import { DetailLivraisonPage } from './detail-livraison.page';
+import { ScannerQrcodePage } from './scanner-qrcode.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailLivraisonPageRoutingModule,
+    ScannerQrcodePageRoutingModule
   ],
-  declarations: [DetailLivraisonPage]
+  declarations: [ScannerQrcodePage]
 })
-export class DetailLivraisonPageModule {}
+export class ScannerQrcodePageModule {}
