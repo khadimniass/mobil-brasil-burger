@@ -14,6 +14,7 @@ export class AuthentificationService {
   informationUserConnectd: any;
   public userCon: any;
   allUser: any[]=[];
+  private readonly urlClient: string = 'http://127.0.0.1:8000/api/clients';
   constructor(private http: HttpClient,
               private router: Router) { }
   login(user: any){
@@ -48,5 +49,10 @@ export class AuthentificationService {
   }
   getLivreurs(): Observable<any>{
     return this.http.get<any>(this.urlAllLivreur);
+  }
+  register(user: any){
+    return this.http.post(this.urlClient,user).subscribe(userInsered=>{
+      console.log(userInsered);
+    });
   }
 }

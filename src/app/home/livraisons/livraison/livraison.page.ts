@@ -7,10 +7,8 @@ import { IonModal } from '@ionic/angular';
   styleUrls: ['./livraison.page.scss'],
 })
 export class LivraisonPage implements OnInit {
-  @ViewChild(IonModal) modal: IonModal;
 livreurConnected: any;
 livraisons: any[];
-name: string;
 idModal='open-modal';
   constructor(private serviceAuth: AuthentificationService) { }
 
@@ -26,11 +24,6 @@ idModal='open-modal';
    //   console.log(this.livreurConnected);
     });
   }
-
-  detaillivraison(id: number) {
-    console.log(id);
-  }
-
   code(event: any) {
     this.idModal ='open-modal';
     //event.target.id='open-modal';
@@ -39,12 +32,6 @@ idModal='open-modal';
 
   qrCode() {
     alert('qr code');
-  }
-  cancel() {
-    this.modal.dismiss(null, 'cancel');
-  }
-  confirm() {
-    this.modal.dismiss(this.name, 'confirm');
   }
 }
 

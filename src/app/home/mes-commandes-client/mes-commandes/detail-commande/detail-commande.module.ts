@@ -7,8 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DetailCommandePageRoutingModule } from './detail-commande-routing.module';
 
 import { DetailCommandePage } from './detail-commande.page';
-import {QRCodeModule} from "angularx-qrcode";
-
+import {QRCodeModule} from 'angularx-qrcode';
 @NgModule({
     imports: [
         CommonModule,

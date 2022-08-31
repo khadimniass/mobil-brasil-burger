@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DetailLivraisonPageRoutingModule } from './detail-livraison-routing.module';
 
 import { DetailLivraisonPage } from './detail-livraison.page';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailLivraisonPageRoutingModule
+    DetailLivraisonPageRoutingModule,
+    ZXingScannerModule
   ],
   declarations: [DetailLivraisonPage]
 })

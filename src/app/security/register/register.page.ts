@@ -16,7 +16,10 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
   register(form) {
-    console.log('all',form.controls.value);
+    if (form.controls.valueOf().password.value!==form.controls.valueOf().confirm.value){
+      console.log('password no match'); return;
+    }
+    console.log('all',form.controls.valueOf());
     console.log('***************************-----------***************************');
     console.log('prenom : =>',form.controls.valueOf().prenom.value);
     console.log('nom : =>',form.controls.valueOf().nom.value);
