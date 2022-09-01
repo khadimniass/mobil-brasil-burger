@@ -25,12 +25,12 @@ export class ScannerQrcodePage implements OnInit {
     const isInStandaloneMode = () =>
       'standalone' in window.navigator && window.navigator['standalone'];
     if (this.plt.is('ios') && isInStandaloneMode()) {
-      console.log('I am a an iOS PWA!');
       // E.g. hide the scan functionality!
     }
   }
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.startScan();
+  }
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngAfterViewInit() {
     this.canvasElement = this.canvas.nativeElement;
@@ -117,33 +117,6 @@ export class ScannerQrcodePage implements OnInit {
     } else {
       requestAnimationFrame(this.scan.bind(this));
     }
-  }
-  captureImage() {
-    this.fileinput.nativeElement.click();
-  }
-
-  handleFile(files: FileList) {
-    const file = files.item(0);
-
-    const img = new Image();
-    img.onload = () => {
-      this.canvasContext.drawImage(img, 0, 0, this.canvasElement.width, this.canvasElement.height);
-      const imageData = this.canvasContext.getImageData(
-        0,
-        0,
-        this.canvasElement.width,
-        this.canvasElement.height
-      );
-      const code = jsQR(imageData.data, imageData.width, imageData.height, {
-        inversionAttempts: 'dontInvert'
-      });
-
-      if (code) {
-        this.scanResult = code.data;
-        this.showQrToast();
-      }
-    };
-    img.src = URL.createObjectURL(file);
   }
 }
 

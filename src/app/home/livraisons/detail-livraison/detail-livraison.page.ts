@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {BackService} from '../../../services/back.service';
 import { IonModal } from '@ionic/angular';
 
@@ -18,6 +18,7 @@ export class DetailLivraisonPage implements OnInit{
   loading: HTMLIonLoadingElement = null;
   constructor(private activeRoute: ActivatedRoute,
               private servicebd: BackService,
+              private router: Router
               ) { }
   ngOnInit() {
     const idLivraison = + this.activeRoute.snapshot.params.id;
@@ -26,10 +27,9 @@ export class DetailLivraisonPage implements OnInit{
       data.commandes.forEach(comande=>{
          this.zone=comande.zone.nom;
       });
+      console.log(this.commandes);
     });
   }
-  //
-  //
   cancel() {
     this.modal.dismiss(this.name, 'cancel');
   }
@@ -38,12 +38,9 @@ export class DetailLivraisonPage implements OnInit{
     console.log('code commande : ',commande.code);
     this.modal.dismiss(this.name, 'confirm');
     this.name='';
-    for (let i = 0; i < 4; i++) {
-
-    }
   }
   qrcode() {
-    this.iscan = !this.iscan;
+    this.router.navigateByUrl('home/scanner-qrcode');
   }
   code() {
   //  alert('code');

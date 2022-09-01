@@ -8,6 +8,7 @@ import { MesCommandesPageRoutingModule } from './mes-commandes-routing.module';
 
 import { MesCommandesPage } from './mes-commandes.page';
 import {QRCodeModule} from "angularx-qrcode";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {QRCodeModule} from "angularx-qrcode";
         FormsModule,
         IonicModule,
         MesCommandesPageRoutingModule,
-        QRCodeModule
+        QRCodeModule,
+        Ng2SearchPipeModule
     ],
   declarations: [MesCommandesPage]
 })

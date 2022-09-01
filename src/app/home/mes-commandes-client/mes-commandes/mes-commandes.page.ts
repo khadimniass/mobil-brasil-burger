@@ -10,6 +10,7 @@ import {BackService} from '../../../services/back.service';
 export class MesCommandesPage implements OnInit {
   clientConnected: any;
   commandesClient: any[]=[];
+  searchText='en cours';
   constructor(
     private authServe: AuthentificationService,
     private serviceBack: BackService
@@ -20,7 +21,11 @@ export class MesCommandesPage implements OnInit {
     this.serviceBack.getClientByEmail(mailUserConnected).subscribe(clients=>{
       this.clientConnected= clients.find(clien=>clien.login===mailUserConnected);
       this.commandesClient=clients.find(clien=>clien.login===mailUserConnected).commandes;
-      console.log('les commandes :)',this.commandesClient);
+    //  console.log('les commandes :)',this.commandesClient);
     });
+  }
+
+  search(value: any) {
+    this.searchText = value;
   }
 }
