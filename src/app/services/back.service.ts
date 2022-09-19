@@ -13,7 +13,7 @@ export class BackService {
   private readonly urlcommandes: string = 'http://127.0.0.1:8000/api/commandes';
   constructor(
     private http: HttpClient
-  ) {}
+  ){}
   getCatalogueObs(): Observable<any>{
     return this.http.get<any>(this.urlCatlogue);
   }
@@ -28,5 +28,14 @@ export class BackService {
   }
   getCommandeById(id: number){
     return this.http.get<any>(this.urlcommandes+'/'+id);
+  }
+  updateCommande(commande: any, status: string){
+    this.http.put(this.urlcommandes+'/'+commande.id, {etat:status}).subscribe((comupdated: any)=>{
+      comupdated.etat = status;
+      }
+    );
+  }
+  getCommandeByCode(code: number){
+    return this.http.get(this.urlcommandes+'?code='+code);
   }
 }

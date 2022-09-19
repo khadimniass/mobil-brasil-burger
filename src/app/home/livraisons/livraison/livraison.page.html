@@ -17,9 +17,11 @@
       </ion-avatar>
       <ion-label>
         <h1>{{livraison?.date|date:'dd/MM/yy'}}</h1>
-        <small>{{livraison?.commandes.length}} commandes</small> <br>
         <small>{{livraison?.commandes[0].user.prenom}}  {{livraison?.commandes[0].user.nom}}</small> <br>
-        <small>{{livraison?.commandes[0].user.telephone}}</small>
+        <p><ion-icon name="call"></ion-icon>
+          <small>{{livraison?.commandes[0].user.telephone}}</small>
+        </p>
+        <small style="color: #e04055">{{livraison?.commandes.length}} commandes</small>
       </ion-label>
       <p> {{livraison.prix}} </p>
     </ion-item>

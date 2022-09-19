@@ -23,13 +23,10 @@
 
   <ion-card *ngIf="scanResult">
     <ion-card-header>
-      <ion-card-title>QR Code</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      commande
-     <h1> {{ scanResult }} </h1>
-      validée avec success
+     <h2 style="color: green">commande {{ scanResult }} validée avec success...</h2>
     </ion-card-content>
-    <ion-button>les livraisons</ion-button>
+    <ion-button href="home/livraison">livraisons</ion-button>
   </ion-card>
 </ion-content>

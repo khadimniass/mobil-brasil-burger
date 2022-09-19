@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef,OnInit } from '@angular/core';
 import { ToastController, LoadingController, Platform } from '@ionic/angular';
 import jsQR from 'jsqr';
+import {Router} from '@angular/router';
+import {BackService} from '../../../services/back.service';
 @Component({
   selector: 'app-scanner-qrcode',
   templateUrl: './scanner-qrcode.page.html',
@@ -16,11 +18,14 @@ export class ScannerQrcodePage implements OnInit {
   canvasContext: any;
   scanActive = false;
   scanResult = null;
+  commandeToValider: any;
   loading: HTMLIonLoadingElement = null;
   constructor(
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
-    private plt: Platform
+    private plt: Platform,
+    private router: Router,
+    private backService: BackService
   ) {
     const isInStandaloneMode = () =>
       'standalone' in window.navigator && window.navigator['standalone'];
@@ -39,27 +44,13 @@ export class ScannerQrcodePage implements OnInit {
   }
 
   // Helper functions
-  async showQrToast() {
-    const toast = await this.toastCtrl.create({
-      message: `Open ${this.scanResult}?`,
-      position: 'top',
-      buttons: [
-        {
-          text: 'Open',
-          handler: () => {
-            window.open(this.scanResult, '_system', 'location=yes');
-          }
-        }
-      ]
-    });
-    toast.present();
-  }
   reset() {
     this.scanResult = null;
   }
 
   stopScan() {
     this.scanActive = false;
+    this.router.navigateByUrl('home/livraison');
   }
   async startScan() {
     // Not working on iOS standalone mode!
@@ -105,10 +96,20 @@ export class ScannerQrcodePage implements OnInit {
         inversionAttempts: 'dontInvert'
       });
 
-      if (code) {
+      if (code){
         this.scanActive = false;
         this.scanResult = code.data;
-        this.showQrToast();
+        //REDIRECTION ET UPDATE COMMANDE\\ => getcommandeByCode
+        console.log(code.data); //information du scan
+        this.backService.getCommandeByCode(+code.data).subscribe((commandesAValiver: any )=>{
+          console.log(commandesAValiver);
+          commandesAValiver.forEach(com=>{
+            console.log(com);
+            this.backService.updateCommande(com,'livre');
+          });
+          //faire des Teste
+          return;
+        });
       } else {
         if (this.scanActive) {
           requestAnimationFrame(this.scan.bind(this));
